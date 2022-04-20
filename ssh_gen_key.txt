@@ -1,0 +1,9 @@
+#Tao cap ssh public - private key de truy cap vao server
+
+cd .ssh
+
+ssh-keygen -t rsa
+
+ssh-copy-id -i <ten_file>.pub <remote_user>@<remote_server>
+
+ssh <remote_user>@<remote_server>
