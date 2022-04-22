@@ -1,0 +1,17 @@
+cd /etc/systemd/system
+
+sudo nano <whatever_you_want>.service
+
+# Content of .service file:
+
+[Unit]
+Description=<?>
+After=syslog.target
+
+[Service]
+User=<user>
+ExecStart=java -jar <path_to_jar> SuccessExitStatus=143
+Restart = always
+
+[Install]
+WantedBy=multi-user.target
