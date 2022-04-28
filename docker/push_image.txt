@@ -1,0 +1,8 @@
+# LOGIN FIRST
+docker login
+# TO GET IMAGE ID
+docker images 
+# TAG
+docker tag <imgID> <dockerhub id>/<repo-name>:<tag>
+
+docker push <dockerhubid>/<repo-name>:<tag>
