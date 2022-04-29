@@ -1,0 +1,6 @@
+#CREATE CONTEXT
+docker context create <context-name> --docker "host=ssh://?@?"
+#USE CONTEXT
+docker context use <context-name>
+#Up docker compose
+docker-compose --context <context-name> up -d
