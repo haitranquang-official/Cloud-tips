@@ -1,0 +1,42 @@
+version: '3.0'
+
+services:
+  mariadb-master:
+    image: bitnami/mariadb:10.8
+    ports:
+      - 10010:3306
+    # volumes:
+    #   - 'mariadb_master_data:/bitnami/mariadb'
+    environment:
+      - MARIADB_REPLICATION_MODE=master
+      - MARIADB_REPLICATION_USER=repl_user
+      - MARIADB_REPLICATION_PASSWORD=password
+      - MARIADB_USER=my_user
+      - MARIADB_DATABASE=my_database
+      - MARIADB_PASSWORD=password
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - MARIADB_ROOT_PASSWORD=password
+
+  mariadb-slave:
+    image: bitnami/mariadb:10.8
+    ports:
+      - 10011:3306
+    depends_on:
+      - mariadb-master
+    environment:
+      - MARIADB_REPLICATION_MODE=slave
+      - MARIADB_REPLICATION_USER=repl_user
+      - MARIADB_REPLICATION_PASSWORD=password
+      - MARIADB_USER=my_user
+      - MARIADB_PASSWORD=password
+      - MARIADB_DATABASE=my_database
+      - MARIADB_MASTER_HOST=mariadb-master
+      - MASTER_HOST=mariadb-master
+      - MARIADB_MASTER_PORT_NUMBER=3306
+      - MARIADB_MASTER_ROOT_PASSWORD=password
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - MARIADB_ROOT_PASSWORD=password
+
+volumes:
+  mariadb:
+    driver: local

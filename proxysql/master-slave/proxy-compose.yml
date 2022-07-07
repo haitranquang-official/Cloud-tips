@@ -1,0 +1,15 @@
+version: "3.0"
+
+services:
+  proxysql:
+    image: proxysql/proxysql:2.0.12
+    container_name: proxysql-mysql-replication-proxysql
+    ports:
+      - 6032:6032
+      - 6033:6033
+    volumes:
+      - ./proxysql/proxysql.cnf:/etc/proxysql.cnf
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+volumes:
+  proxydb:
