@@ -39,8 +39,9 @@ mysql_replication_hostgroups =
 
 mysql_servers =
 (
-    { address="host.docker.internal" , port=10010 , hostgroup=10, max_connections=100 , max_replication_lag = 5 },
-    { address="host.docker.internal" , port=10011 , hostgroup=20, max_connections=100 , max_replication_lag = 5 }
+    { address="host.docker.internal" , port=3391 , hostgroup=10, max_connections=100 , max_replication_lag = 5 },
+    { address="host.docker.internal" , port=3392 , hostgroup=20, max_connections=100 , max_replication_lag = 5 },
+    { address="host.docker.internal" , port=3393 , hostgroup=20, max_connections=100 , max_replication_lag = 5 }
 )
 
 mysql_query_rules =

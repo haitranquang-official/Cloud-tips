@@ -15,6 +15,9 @@ services:
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=my_user
+      - MARIADB_DATABASE=my_database
+      - MARIADB_PASSWORD=password
       - MARIADB_GALERA_CLUSTER_NAME=mariadb-cluster
       - MARIADB_GALERA_CLUSTER_BOOTSTRAP=yes
       - MARIADB_GALERA_FORCE_SAFETOBOOTSTRAP=yes
@@ -23,7 +26,7 @@ services:
       - MARIADB_EXTRA_FLAGS=--max-connect-errors=1000 --max_connections=155
       - MARIADB_GALERA_MARIABACKUP_USER=mariadb_backup_user
       - MARIADB_GALERA_MARIABACKUP_PASSWORD=backup_pwd
-      - MARIADB_ROOT_PASSWORD=root_password
+      - MARIADB_ROOT_PASSWORD=password
       - MARIADB_REPLICATION_USER=rep_user
       - MARIADB_REPLICATION_PASSWORD=rep_pwd
     healthcheck:
@@ -46,6 +49,9 @@ services:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_GALERA_CLUSTER_NAME=mariadb-cluster
+      - MARIADB_USER=my_user
+      - MARIADB_DATABASE=my_database
+      - MARIADB_PASSWORD=password
       #- MARIADB_GALERA_CLUSTER_BOOTSTRAP=yes
       #- MARIADB_GALERA_FORCE_SAFETOBOOTSTRAP=yes
       # MARIADB_GALERA_CLUSTER_ADDRESS point to bootstrap node
@@ -53,7 +59,7 @@ services:
       - MARIADB_EXTRA_FLAGS=--max-connect-errors=1000 --max_connections=155
       - MARIADB_GALERA_MARIABACKUP_USER=mariadb_backup_user
       - MARIADB_GALERA_MARIABACKUP_PASSWORD=backup_pwd
-      - MARIADB_ROOT_PASSWORD=root_password
+      - MARIADB_ROOT_PASSWORD=password
       - MARIADB_REPLICATION_USER=rep_user
       - MARIADB_REPLICATION_PASSWORD=rep_pwd
     healthcheck:
@@ -75,12 +81,15 @@ services:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_GALERA_CLUSTER_NAME=mariadb-cluster
+      - MARIADB_USER=my_user
+      - MARIADB_DATABASE=my_database
+      - MARIADB_PASSWORD=password
         # MARIADB_GALERA_CLUSTER_ADDRESS point to bootstrap node
       - MARIADB_GALERA_CLUSTER_ADDRESS=gcomm://mariadb-galera-1:4567,mariadb-galera-2:4567,mariadb-galera-3:4567,0.0.0.0:4567
       - MARIADB_EXTRA_FLAGS=--max-connect-errors=1000 --max_connections=155
       - MARIADB_GALERA_MARIABACKUP_USER=mariadb_backup_user
       - MARIADB_GALERA_MARIABACKUP_PASSWORD=backup_pwd
-      - MARIADB_ROOT_PASSWORD=root_password
+      - MARIADB_ROOT_PASSWORD=password
       - MARIADB_REPLICATION_USER=rep_user
       - MARIADB_REPLICATION_PASSWORD=rep_pwd
     healthcheck:
