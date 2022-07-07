@@ -1,0 +1,35 @@
+version: '3.0'
+
+services:
+
+  mysqld-exporter-galera-1:
+    image: prom/mysqld-exporter
+    container_name: proxysql-mysql-replication-mysqld-exporter-galera-1
+    environment:
+      - DATA_SOURCE_NAME=root:password@(host.docker.internal:3391)/my_database
+    ports:
+      - 9104:9104
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  mysqld-exporter-galera-2:
+    image: prom/mysqld-exporter
+    container_name: proxysql-mysql-replication-mysqld-exporter-galera-2
+    environment:
+      - DATA_SOURCE_NAME=root:password@(host.docker.internal:3392)/my_database
+    ports:
+      - 9105:9104
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  mysqld-exporter-galera-3:
+    image: prom/mysqld-exporter
+    container_name: proxysql-mysql-replication-mysqld-exporter-galera-3
+    environment:
+      - DATA_SOURCE_NAME=root:password@(host.docker.internal:3393)/my_database
+    ports:
+      - 9106:9104
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+volumes:
+  exporter:

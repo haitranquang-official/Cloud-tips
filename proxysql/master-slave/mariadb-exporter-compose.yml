@@ -21,6 +21,16 @@ services:
       - 9105:9104
     extra_hosts:
       - "host.docker.internal:host-gateway"
+  
+  mysqld-exporter-slave2:
+    image: prom/mysqld-exporter
+    container_name: proxysql-mysql-replication-mysqld-exporter-slave2
+    environment:
+      - DATA_SOURCE_NAME=root:password@(host.docker.internal:10012)/my_database
+    ports:
+      - 9106:9104
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 volumes:
   exporter:
