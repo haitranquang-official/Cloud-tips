@@ -16,6 +16,7 @@ services:
       - MARIADB_PASSWORD=password
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - MARIADB_ROOT_PASSWORD=password
+      - MARIADB_ROOT_HOST=%
 
   mariadb-slave:
     image: bitnami/mariadb:10.8
@@ -36,6 +37,7 @@ services:
       - MARIADB_MASTER_ROOT_PASSWORD=password
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - MARIADB_ROOT_PASSWORD=password
+      - MARIADB_ROOT_HOST=%
 
   mariadb-slave2:
     image: bitnami/mariadb:10.8
@@ -56,6 +58,7 @@ services:
       - MARIADB_MASTER_ROOT_PASSWORD=password
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - MARIADB_ROOT_PASSWORD=password
+      - MARIADB_ROOT_HOST=%
 
 volumes:
   mariadb:
